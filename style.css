@@ -1,0 +1,207 @@
+body {
+  background-color: #252525;
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.infototalcontainer {
+  border: 10px solid;
+  border-color: red;
+  border-radius: 80px;
+  padding: 10px;
+  margin: 20px auto;
+  width: 95%;
+  max-width: 450px;
+}
+
+.infocontainer {
+  margin-top: 10px;
+  text-align: justify;
+  color: white;
+  border-radius: 20px;
+  padding: 0px 50px 0 0px;
+  margin: 0 0 0 50px;
+  font-size: 40px;
+  font-family: sans-serif;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
+  border-bottom: solid 10px red;
+  border-radius: 100px;
+}
+
+.inputmenosmeta {
+  font-size: 40px;
+  background-color: rgb(68, 67, 68);
+  border-radius: 100px;
+  padding: 15px;
+  margin: 0 50px 15px 0;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  width: 30%;
+  margin-top: 10px;
+  color: black;
+}
+
+.totalMenosResul {
+  color: white;
+  font-size: 40px;
+  margin-right: 100px;
+}
+
+.restanteP {
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
+  margin-left: 100px;
+  font-family: sans-serif;
+}
+
+.sumadeldia {
+  border: 10px solid;
+  border-color: black;
+  font-size: 50px;
+  color: white;
+  border-radius: 40px;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+.sumatoria {
+  padding: 20px;
+  text-align: justify;
+  margin: 0 0 0 0;
+}
+
+.mastre-cinco {
+  background-color: aqua;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  font-size: 25px;
+}
+
+.mascuarenta {
+  background-color: green;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  font-size: 25px;
+}
+
+.mascuatro-cinco {
+  background-color: rgb(180, 6, 108);
+  border-radius: 50%;
+  padding: 10px;
+  margin: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  font-size: 25px;
+}
+
+.mas-cincuenta {
+  background-color: rgb(224, 38, 6);
+  border-radius: 50%;
+  padding: 15px;
+  margin: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  font-size: 25px;
+}
+
+.otro_num {
+  font-size: 40px;
+  background-color: rgb(68, 67, 68);
+  border-radius: 100px;
+  padding: 20px 20px 20px 20px;
+  margin: 0 50px 15px 50px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  width: 80%;
+  max-width: 450px;
+}
+
+.enviar_suma {
+  font-size: 30px;
+  background-color: #fff6ff;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px auto;
+  padding: 10px 10px 10px 10px;
+  width: 90%;
+}
+
+.borrar {
+  font-size: 30px;
+  background-color: #fff6ff;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px auto;
+  padding: 10px 10px 10px 10px;
+  width: 90%;
+}
+
+.botonera {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.botonesSumatoria {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  padding: 15px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.botonesExtra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+header {
+  background-color: hsl(0, 0%, 0%);
+  color: white;
+}
+
+
+
+/*# sourceMappingURL=style.css.map */
