@@ -32,17 +32,45 @@ let histoPedidos = [];
 
 
 
-function suma(cant) {
+function cantPedidos() {
+    const p = document.querySelector('.num_ped')
 
+    p.innerHTML = histoPedidos.length;
+
+    
+}
+
+
+function metaCantPedidos() {
+
+    const span = document.querySelector(".meta_pedidos_cant")
+    const divideCant = document.querySelector('.inputmenosmeta').value
+    const costoEnvio = 35;
+    let intCant = divideCant / costoEnvio;
+    const resul = Math.ceil(intCant);
+    span.innerHTML = resul;
+}
+
+function suma(cant) {
+    
 
     totalPedidos = totalPedidos + cant;
     histoPedidos.push(cant);
 
+    
     sumatroriaDiaria.innerHTML = totalPedidos;
-
     const metaDiaria = document.querySelector(".inputmenosmeta");
 
+    
     totalMenosMeta();
+    cantPedidos();
+    metaCantPedidos();
+
+    let pedidosLlevados= histoPedidos.length;
+    let objetivo = Number(document.querySelector('.meta_pedidos_cant').innerHTML)
+    if (pedidosLlevados >= objetivo && objetivo>0){
+        alert('Has Logrado la meta!!!')
+    }
 }
 console.log(histoPedidos);
 
@@ -57,9 +85,13 @@ function totalMenosMeta() {
     let result = valorMeta - totalPedidos;
     totalResul.innerHTML = result;
 
+    cantPedidos();
+    metaCantPedidos();
     console.log('faltan ' + result);
 
 }
+
+
 
 function otroNume() {
     const otroNum = document.querySelector('.otro_num');
@@ -82,24 +114,25 @@ function otroNume() {
 
 }
 
-function borrar(){
-    if (histoPedidos.length > 0){
+function borrar() {
+    if (histoPedidos.length > 0) {
         let deleteLastvalue = histoPedidos.pop()
 
-        totalPedidos =   totalPedidos - deleteLastvalue;
+        totalPedidos = totalPedidos - deleteLastvalue;
         sumatroriaDiaria.innerHTML = totalPedidos
         totalMenosMeta()
-    }else{
+    } else {
         alert('no hay mas pedidos que restar')
     }
 }
 
-function deleteAll(){
-    if (confirm("SEGURO QUE QUIERES BORRAR TODA LA SUMA?")){
-        totalPedidos = 0 
+function deleteAll() {
+    if (confirm("SEGURO QUE QUIERES BORRAR TODA LA SUMA?")) {
+        totalPedidos = 0
         histoPedidos = []
 
         sumatroriaDiaria.innerHTML = totalPedidos;
         totalMenosMeta();
     }
 }
+

@@ -39,6 +39,44 @@ body {
     border-radius: 100px;
 
 }
+// valores de cantidad de pedidos
+.cant_pedidos{
+
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+    // border: solid 10px;
+    // border: 10px solid;
+    // border-color: black;
+    font-size: 50px;
+    color: white;
+    border-radius: 40px;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+
+.metaPedidos{
+    border: 10px solid;
+    border-color: yellow;
+    font-size: 20px;
+    color: white;
+    border-radius: 40px;
+    padding: 40px;
+    margin: 40px auto;
+}
+
+.lo_que_llevamos{
+    border: 10px solid;
+    border-color: orange;
+    font-size: 20px;
+    color: white;
+    border-radius: 40px;
+    padding: 40px ;
+    margin: 40px auto;
+}
+// valores de cantidad de pedidos
 
 .inputmenosmeta{
     font-size: 40px;
@@ -78,7 +116,7 @@ body {
 
 .sumadeldia {
     border: 10px solid;
-    border-color: black;
+    border-color: green;
     font-size: 50px;
     color: white;
     border-radius: 40px;
@@ -211,7 +249,8 @@ body {
 //     // align-items: center;
 // }
 
-.botonera{ display: flex;
+.botonera{ 
+    display: flex;
     align-items: center;
     gap: 15px;
     justify-content: space-between;
