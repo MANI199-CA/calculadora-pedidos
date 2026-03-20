@@ -1,46 +1,29 @@
 
+let totalPedidos = Number(localStorage.getItem('totalPedidos')) || 0;
+let sumatroriaDiaria;
+let histoPedidos = JSON.parse(localStorage.getItem('histoPedidos')) || [];
 
+window.onload = function () {
+    // const sumatroriaDiaria = document.querySelector('.sumatoria');
+    sumatroriaDiaria = document.querySelector('.sumatoria');    
+    if (sumatroriaDiaria) {
+        sumatroriaDiaria.innerHTML = totalPedidos;
+    }
 
-// function sumaTresCinco (){
-//     const sumatoria = document.querySelector('.sumatoria');
-//     totalPedidos= totalPedidos + 35;
-//     sumatoria.innerHTML = totalPedidos;
-// }
+    cantPedidos()
+    metaCantPedidos()
+}
 
-// function sumaCuatroCero (){
-//     const sumatoria = document.querySelector('.sumatoria');
-//     totalPedidos= totalPedidos + 40;
-//     sumatoria.innerHTML = totalPedidos;
-// }
-
-// function sumaCuatroCinco (){
-//     const sumatoria = document.querySelector('.sumatoria');
-//     totalPedidos= totalPedidos + 45;
-//     sumatoria.innerHTML = totalPedidos;
-// }
-
-// function sumaCincoCero (){
-//     const sumatoria = document.querySelector('.sumatoria');
-//     totalPedidos= totalPedidos + 50;
-//     sumatoria.innerHTML = totalPedidos;
-// }
-
-
-let totalPedidos = 0;
-const sumatroriaDiaria = document.querySelector('.sumatoria');
-let histoPedidos = [];
-
-
-
+// esta funcion me dice la cantidad de pedidos que llevo y se refleja mediante la cantidad de elementos en el array
 function cantPedidos() {
     const p = document.querySelector('.num_ped')
 
     p.innerHTML = histoPedidos.length;
 
-    
+
 }
 
-
+// esta funcion divide la meta en dinero entre el costo minimo de envio y eso me da la cantidad de pedidos meta
 function metaCantPedidos() {
 
     const span = document.querySelector(".meta_pedidos_cant")
@@ -51,29 +34,33 @@ function metaCantPedidos() {
     span.innerHTML = resul;
 }
 
+// esta funcion me da la suma de envios por pedido y lo muestra en el html, esta funcion suma los botones de cantidad de envio
 function suma(cant) {
-    
+
 
     totalPedidos = totalPedidos + cant;
     histoPedidos.push(cant);
 
-    
+
     sumatroriaDiaria.innerHTML = totalPedidos;
     const metaDiaria = document.querySelector(".inputmenosmeta");
 
-    
+
     totalMenosMeta();
     cantPedidos();
     metaCantPedidos();
+    guardarDatos();
 
-    let pedidosLlevados= histoPedidos.length;
+    let pedidosLlevados = histoPedidos.length;
     let objetivo = Number(document.querySelector('.meta_pedidos_cant').innerHTML)
-    if (pedidosLlevados >= objetivo && objetivo>0){
+    if (pedidosLlevados >= objetivo && objetivo > 0) {
         alert('Has Logrado la meta!!!')
     }
 }
-console.log(histoPedidos);
+// cons]ole.log(histoPedidos);
 
+
+//esta funcion toma el dato del input meta en dinero y lo resta con la cantidad de envios sumados
 function totalMenosMeta() {
     const meta = document.querySelector('.inputmenosmeta');
 
@@ -92,7 +79,7 @@ function totalMenosMeta() {
 }
 
 
-
+// esta funcion suma el valor capturado en el input de otro monti de envio lo suma a la sumatoria principal de los botones
 function otroNume() {
     const otroNum = document.querySelector('.otro_num');
 
@@ -111,9 +98,11 @@ function otroNume() {
 
     }
 
-
+    guardarDatos()
 }
 
+
+// esta funcion borra el ultimo envio capturado
 function borrar() {
     if (histoPedidos.length > 0) {
         let deleteLastvalue = histoPedidos.pop()
@@ -124,8 +113,11 @@ function borrar() {
     } else {
         alert('no hay mas pedidos que restar')
     }
+    guardarDatos();
 }
 
+
+// esta funcion elimina toda la suma usando doble click
 function deleteAll() {
     if (confirm("SEGURO QUE QUIERES BORRAR TODA LA SUMA?")) {
         totalPedidos = 0
@@ -134,5 +126,13 @@ function deleteAll() {
         sumatroriaDiaria.innerHTML = totalPedidos;
         totalMenosMeta();
     }
+    guardarDatos();
 }
 
+
+
+// esta funcion guarda los datos por si salgo de la app
+function guardarDatos() {
+    localStorage.setItem('totalPedidos', totalPedidos);
+    localStorage.setItem('histoPedidos', JSON.stringify(histoPedidos));
+}
