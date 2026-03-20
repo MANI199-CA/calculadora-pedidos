@@ -74,6 +74,7 @@ function totalMenosMeta() {
 
     cantPedidos();
     metaCantPedidos();
+    guardarDatos();
     console.log('faltan ' + result);
 
 }
