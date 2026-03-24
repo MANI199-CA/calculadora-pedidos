@@ -2,16 +2,30 @@
 let totalPedidos = Number(localStorage.getItem('totalPedidos')) || 0;
 let sumatroriaDiaria;
 let histoPedidos = JSON.parse(localStorage.getItem('histoPedidos')) || [];
+let meta;
+let totalResul;
+
+
 
 window.onload = function () {
     // const sumatroriaDiaria = document.querySelector('.sumatoria');
-    sumatroriaDiaria = document.querySelector('.sumatoria');    
+    sumatroriaDiaria = document.querySelector('.sumatoria');
+    meta = document.querySelector('.inputmenosmeta');
+    totalResul = document.querySelector(".totalMenosResul");
+
     if (sumatroriaDiaria) {
         sumatroriaDiaria.innerHTML = totalPedidos;
+
+    }
+
+    if (meta) {
+        const metaGuardada = localStorage.getItem('metaDiaria') || '' ;
+        meta.value = metaGuardada;
     }
 
     cantPedidos()
     metaCantPedidos()
+    totalMenosMeta()
 }
 
 // esta funcion me dice la cantidad de pedidos que llevo y se refleja mediante la cantidad de elementos en el array
@@ -43,7 +57,7 @@ function suma(cant) {
 
 
     sumatroriaDiaria.innerHTML = totalPedidos;
-    const metaDiaria = document.querySelector(".inputmenosmeta");
+    // const metaDiaria = document.querySelector(".inputmenosmeta");
 
 
     totalMenosMeta();
@@ -62,44 +76,58 @@ function suma(cant) {
 
 //esta funcion toma el dato del input meta en dinero y lo resta con la cantidad de envios sumados
 function totalMenosMeta() {
-    const meta = document.querySelector('.inputmenosmeta');
 
-    const totalResul = document.querySelector(".totalMenosResul");
+    let valorMeta;
 
-    let valorMeta = parseFloat(meta.value);
+    if (meta && meta.value !== '') {
+        valorMeta = parseFloat(meta.value);
+
+    }
+    else {
+        valorMeta = parseFloat(localStorage.getItem('metaDiaria')) || 0;
+    }
+
+    if (totalResul) {
+        let result = valorMeta - totalPedidos;
+        totalResul.innerHTML = result;
+
+        metaCantPedidos();
+        cantPedidos();
+    }
 
 
-    let result = valorMeta - totalPedidos;
-    totalResul.innerHTML = result;
 
-    cantPedidos();
-    metaCantPedidos();
+    // console.log('faltan ' + result);
+
+
     guardarDatos();
-    console.log('faltan ' + result);
-
 }
 
 
 // esta funcion suma el valor capturado en el input de otro monti de envio lo suma a la sumatoria principal de los botones
 function otroNume() {
     const otroNum = document.querySelector('.otro_num');
+    if (otroNum) {
+        let nuevoValor = parseFloat(otroNum.value);
 
-    let nuevoValor = parseFloat(otroNum.value);
+        // let nuevaSuma = nuevoValor + totalPedidos;
 
-    // let nuevaSuma = nuevoValor + totalPedidos;
+        if (!isNaN(nuevoValor)) {
 
-    if (!isNaN(nuevoValor)) {
-        totalPedidos = totalPedidos + nuevoValor;
-        sumatroriaDiaria.innerHTML = totalPedidos;
+            totalPedidos = totalPedidos + nuevoValor;
 
-        histoPedidos.push(nuevoValor);
-        totalMenosMeta();
+            if (sumatroriaDiaria) {
+                sumatroriaDiaria.innerHTML = totalPedidos;
+            }
+            histoPedidos.push(nuevoValor);
+            totalMenosMeta();
 
-        otroNum.value = '';
+            otroNum.value = '';
 
+        }
+
+        guardarDatos()
     }
-
-    guardarDatos()
 }
 
 
@@ -123,11 +151,19 @@ function deleteAll() {
     if (confirm("SEGURO QUE QUIERES BORRAR TODA LA SUMA?")) {
         totalPedidos = 0
         histoPedidos = []
+        
+        localStorage.removeItem('metaDiaria');
 
-        sumatroriaDiaria.innerHTML = totalPedidos;
+        if(meta){
+            meta.value = '';
+        }
+        if(sumatroriaDiaria){ sumatroriaDiaria.innerHTML = totalPedidos;}
+
+        
+        guardarDatos();
         totalMenosMeta();
     }
-    guardarDatos();
+    
 }
 
 
@@ -136,4 +172,11 @@ function deleteAll() {
 function guardarDatos() {
     localStorage.setItem('totalPedidos', totalPedidos);
     localStorage.setItem('histoPedidos', JSON.stringify(histoPedidos));
+
+    if (meta) {
+        localStorage.setItem('metaDiaria', meta.value);
+    }
+
+
+    // localStorage.setItem('totalSpanMeta', totalResul);
 }
