@@ -5,10 +5,6 @@ body {
   box-sizing: border-box;
 }
 
-.navbar {
-  padding: 10px auto;
-}
-
 .link_sumatorias {
   background-color: #fff6ff;
   font-size: 40px;
@@ -241,7 +237,7 @@ body {
 header {
   background-color: hsl(0, 0%, 0%);
   color: white;
-  font-size: 40px;
+  font-size: 20px;
 }
 
 
