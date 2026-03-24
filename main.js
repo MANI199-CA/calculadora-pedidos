@@ -19,8 +19,15 @@ window.onload = function () {
     }
 
     if (meta) {
-        const metaGuardada = localStorage.getItem('metaDiaria') || '' ;
+        const metaGuardada = localStorage.getItem('metaDiaria') || '';
         meta.value = metaGuardada;
+    }
+
+    // Dentro de window.onload = function() { ... }
+
+    const temaGuardado = localStorage.getItem('tema');
+    if (temaGuardado === 'claro') {
+        document.body.classList.add('modo-claro');
     }
 
     cantPedidos()
@@ -74,10 +81,10 @@ function suma(cant) {
 // cons]ole.log(histoPedidos);
 
 // esta funcion muestra el historial
-function mostrarHisto(){
-   
+function mostrarHisto() {
+
     const contenedor = document.getElementById('lista-historial');
-    
+
     // Si ya se ve, lo ocultamos (Toggle)
     if (contenedor.innerHTML !== "") {
         contenedor.innerHTML = "";
@@ -92,7 +99,7 @@ function mostrarHisto(){
         html += `<li style="color: ${color}">$ ${pedido}</li>`;
     });
     html += "</ul>";
-    
+
     contenedor.innerHTML = html;
 
 }
@@ -154,7 +161,7 @@ function otroNume() {
 }
 
 // esta funcion resta un numero del input
-function restarotroNum(){
+function restarotroNum() {
     const otroNum = document.querySelector('.otro_num');
     if (otroNum) {
         let newValor = parseFloat(otroNum.value);
@@ -199,19 +206,34 @@ function deleteAll() {
     if (confirm("SEGURO QUE QUIERES BORRAR TODA LA SUMA?")) {
         totalPedidos = 0
         histoPedidos = []
-        
+
         localStorage.removeItem('metaDiaria');
 
-        if(meta){
+        if (meta) {
             meta.value = '';
         }
-        if(sumatroriaDiaria){ sumatroriaDiaria.innerHTML = totalPedidos;}
+        if (sumatroriaDiaria) { sumatroriaDiaria.innerHTML = totalPedidos; }
 
-        
+
         guardarDatos();
         totalMenosMeta();
     }
-    
+
+}
+
+//modo claro-obscuro
+function cambiarModo() {
+    const cuerpo = document.body;
+
+    // .toggle() es como un interruptor: si no tiene la clase, la pone; si la tiene, la quita.
+    cuerpo.classList.toggle('modo-claro');
+
+    // Guardamos la preferencia en la "caja fuerte" para que no se resetee
+    if (cuerpo.classList.contains('modo-claro')) {
+        localStorage.setItem('tema', 'claro');
+    } else {
+        localStorage.setItem('tema', 'oscuro');
+    }
 }
 
 
@@ -228,3 +250,10 @@ function guardarDatos() {
 
     // localStorage.setItem('totalSpanMeta', totalResul);
 }
+
+
+
+
+// git add .
+// git commit -m "Mejora: Estructura de dos páginas, persistencia de meta y función de borrado total"
+// git push origin main

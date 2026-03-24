@@ -343,6 +343,59 @@ header {
 
 }
 
+/* Este es el "Uniforme" del Modo Claro */
+.modo-claro {
+    background-color: #f4f4f4 !important; /* Fondo gris muy clarito */
+    color: #121212 !important;            /* Letras casi negras */
+}
 
+/* También podemos cambiar los contenedores para que resalten */
+.modo-claro .infototalcontainer, 
+.modo-claro .botoneratotal {
+    background-color: #ffffff;
+    border: 2px solid #28a745; /* Un borde verde para que se vea pro */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    color: black;
+}
+
+/* Si quieres que los botones de sumar también cambien un poco */
+.modo-claro button {
+    border: 1px solid #ccc;
+}
+
+/* --- AJUSTES DE VISIBILIDAD PARA MODO CLARO --- */
+
+.modo-claro .sumatoria, 
+.modo-claro .num_ped,
+.modo-claro p,
+.modo-claro span,
+.modo-claro h1,
+.modo-claro h2 {
+    color: #121212 !important; /* Negro profundo para leer bajo el sol */
+}
+
+.modo-claro .sumadeldia {
+    background-color: #ffffff !important;
+    border: 3px solid #28a745 !important;
+}
+
+.modo-claro input {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #333 !important;
+}
+
+/* Para que el enlace de "Inicio" o "Configuración" también se vea */
+.modo-claro a {
+    color: #0000ff !important;
+    text-decoration: underline;
+}
+
+.modo-claro .btn-tema {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+}
 
 /*# sourceMappingURL=main.scss.map */
