@@ -1,53 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>calculadora de pedidos</title>
+    <title>segunda pagina</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <header>
         <nav class="navbar">
             <p class="nombreapp"> Calculadora de Pedidos</p>
             <!-- <img src="icon-menu.svg" alt="hamburguesa" class="barra"> -->
-             <a href="secondindex.html"  class="link_sumatorias"> <strong>Sumatorias</strong> </a>
+             <a href="config.html" class="inico_meta">Inicio</a>
         </nav>
     </header>
 
-    <div class="infototalcontainer">
-        <div class="content">
-            <p class="infocontainer"> meta</p>
+    <div class="sumadeldia">
+        <p class="sumatoria" id="sumatoriaTotal">0</p>
 
-            <input type="number" class="inputmenosmeta" placeholder="ingresa meta" oninput="totalMenosMeta ()"></input>
-        </div>
-        <div class="losRestantesPyT">
-            <p class="restanteP">
-                restante para la meta:
-                <span class="totalMenosResul">0</span>
-            </p>
-        </div>
-    </div>
-   
-   
-    <div class="cant_pedidos">
-
-        <div class="metaPedidos">
-            <p > OCUPAMOS ESTA CANT. PEDIDOS </p>
-            <span class="meta_pedidos_cant">0</span>
-
-        </div>
-        <div class="lo_que_llevamos">
-            <p > TENEMOS ESTA CANT. PEDIDOS </p>
-            <span class="num_ped">0</span>
-        </div>
-        
-        
     </div>
 
-        <script src="main.js"></script>
+    <div class="botonera">
+        <div class="botonesSumatoria">
+            <button class="mastre-cinco" onclick="suma(35)"> +35</button>
+            <button class="mascuarenta" onclick="suma(40)"> +40</button>
+            <button class="mascuatro-cinco" onclick="suma(45)"> +45</button>
+            <button class="mas-cincuenta" onclick="suma(50)"> +50</button>
+        </div>
+        <div class="botonesExtra">
+            <input type="number" class="otro_num" placeholder="ingresar otra cantidad"></input>
+            <button class="enviar_suma" onclick="otroNume()">sumar</button>
+            <button class="borrar" onclick="borrar()" ondblclick="deleteAll()"> borrar </button>
+        </div>
+    </div>
+
+
+    <script src="main.js"></script>
 </body>
-
 </html>
