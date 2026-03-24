@@ -15,7 +15,7 @@
         </nav>
     </header>
 
-    <div class="sumadeldia">
+    <div class="sumadeldia" onclick="mostrarHisto()">
         <p class="sumatoria" id="sumatoriaTotal">0</p>
 
     </div>
@@ -29,11 +29,13 @@
         </div>
         <div class="botonesExtra">
             <input type="number" class="otro_num" placeholder="ingresar otra cantidad"></input>
-            <button class="enviar_suma" onclick="otroNume()">sumar</button>
+            <button class="enviar_suma" onclick="otroNume()">+</button>
+            <button class="enviar_resta" onclick="restarotroNum()">-</button>
             <button class="borrar" onclick="borrar()" ondblclick="deleteAll()"> borrar </button>
         </div>
+    
     </div>
-
+    <div id="lista-historial" class="historial-estilo"></div>
 
     <script src="main.js"></script>
 </body>

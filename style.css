@@ -129,6 +129,23 @@ body {
   margin: 20px auto;
 }
 
+.historial-estilo {
+  background-color: #1e1e1e;
+  border-radius: 15px;
+  padding: 15px;
+  margin-top: 20px;
+  color: white;
+  text-align: left;
+  max-height: 200px; /* Para que no se haga eterna la pantalla */
+  overflow-y: auto; /* Permite hacer scroll si hay muchos pedidos */
+  border: 1px solid #333;
+}
+
+.historial-estilo ul {
+  list-style: none;
+  padding: 0;
+}
+
 .sumatoria {
   padding: 20px;
   text-align: justify;
@@ -202,6 +219,18 @@ body {
 }
 
 .enviar_suma {
+  font-size: 30px;
+  background-color: #fff6ff;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px auto;
+  padding: 10px 10px 10px 10px;
+  width: 90%;
+}
+
+.enviar_resta {
   font-size: 30px;
   background-color: #fff6ff;
   border-radius: 50px;

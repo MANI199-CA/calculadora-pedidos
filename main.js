@@ -73,6 +73,29 @@ function suma(cant) {
 }
 // cons]ole.log(histoPedidos);
 
+// esta funcion muestra el historial
+function mostrarHisto(){
+   
+    const contenedor = document.getElementById('lista-historial');
+    
+    // Si ya se ve, lo ocultamos (Toggle)
+    if (contenedor.innerHTML !== "") {
+        contenedor.innerHTML = "";
+        return;
+    }
+
+    // Si no, dibujamos la lista
+    let html = "<h3>Entregas Recientes:</h3><ul>";
+    histoPedidos.forEach(pedido => {
+        // Si el pedido es negativo (resta), lo ponemos rojo, si no, verde
+        const color = pedido < 0 ? "red" : "#2ecc71";
+        html += `<li style="color: ${color}">$ ${pedido}</li>`;
+    });
+    html += "</ul>";
+    
+    contenedor.innerHTML = html;
+
+}
 
 //esta funcion toma el dato del input meta en dinero y lo resta con la cantidad de envios sumados
 function totalMenosMeta() {
@@ -130,6 +153,31 @@ function otroNume() {
     }
 }
 
+// esta funcion resta un numero del input
+function restarotroNum(){
+    const otroNum = document.querySelector('.otro_num');
+    if (otroNum) {
+        let newValor = parseFloat(otroNum.value);
+
+        // let nuevaSuma = nuevoValor + totalPedidos;
+
+        if (!isNaN(newValor)) {
+
+            totalPedidos = totalPedidos - newValor;
+
+            if (sumatroriaDiaria) {
+                sumatroriaDiaria.innerHTML = totalPedidos;
+            }
+            histoPedidos.push(-newValor);
+            totalMenosMeta();
+
+            otroNum.value = '';
+
+        }
+
+        guardarDatos()
+    }
+}
 
 // esta funcion borra el ultimo envio capturado
 function borrar() {
