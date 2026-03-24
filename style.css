@@ -8,16 +8,18 @@ body {
 .link_sumatorias {
   background-color: #fff6ff;
   font-size: 40px;
+  border-radius: 80px;
 }
 
 .infototalcontainer {
   border: 10px solid;
   border-color: red;
   border-radius: 80px;
-  padding: 10px;
-  margin: 20px auto;
   width: 95%;
   max-width: 450px;
+  padding: 20px;
+  margin: 20px auto;
+  font-size: 50px;
 }
 
 .infocontainer {
