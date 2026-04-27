@@ -254,6 +254,8 @@ function guardarDatos() {
 
 
 
-// git add .
-// git commit -m "Mejora: Estructura de dos páginas, persistencia de meta y función de borrado total"
-// git push origin main
+/* 
+git add .
+git commit -m "Mejora: Estructura de dos páginas, persistencia de meta y función de borrado total"
+git push origin main
+*/
